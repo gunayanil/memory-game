@@ -46,11 +46,13 @@ function restartRes(){
 		deck.appendChild(card[i]);
 		cards[i].classList.remove('show', 'open', 'match', 'disabled', 'animated');
 	}
-
+	if(stars[0].style.visibility === "hidden") { stars[0].style.visibility = "visible" }
+	if(stars[1].style.visibility === "hidden") { stars[1].style.visibility = "visible" }
 	moves = 0; matchCounter = 0; openedCards = []; second = 0; minute= 0;
 	timer.innerHTML = "O mins 0 secs";
 	moveHTML.textContent = moves;
 	clearInterval(interval);
+
 
 };
 
@@ -62,7 +64,7 @@ for(let i = 0; i < card.length; i++) {
 }
 
 function display() {
-	this.classList.add('open', 'show'); // cannot use i anymore, that's why we use this
+	this.classList.add('open', 'show', 'disabled'); // cannot use i anymore, that's why we use this
 }
 
 function open() {
@@ -96,6 +98,8 @@ function matched() {
 function unmatched() {
 	openedCards[0].classList.add('animated', 'pulse');
 	openedCards[1].classList.add('animated', 'pulse');
+	openedCards[0].classList.remove('disabled');
+	openedCards[1].classList.remove('disabled');
 	
 	setTimeout(function() {
 		openedCards[0].classList.remove('animated', 'pulse', 'open', 'show');
