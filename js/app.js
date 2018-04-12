@@ -18,7 +18,6 @@ let matchCounter = 0;
 let second = 0, minute = 0;
 let interval;
 
-
 // Knutch Shuffle
 function shuffle(array) {
 	var currentIndex = array.length, temporaryValue, randomIndex;
@@ -71,6 +70,7 @@ function open() {
 	openedCards.push(this); //innerHTML returns a text
 	if(openedCards.length > 1) {
 		check();
+
 	}
 
 }
@@ -100,6 +100,7 @@ function unmatched() {
 	openedCards[1].classList.add('animated', 'pulse');
 	openedCards[0].classList.remove('disabled');
 	openedCards[1].classList.remove('disabled');
+
 	
 	setTimeout(function() {
 		openedCards[0].classList.remove('animated', 'pulse', 'open', 'show');
