@@ -14,7 +14,7 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
-/*    overflow: hidden;*/
+    overflow-x: hidden;
 }
 
 body {
@@ -34,7 +34,6 @@ h1 {
     font-weight: 300;
 }
 
-
 .modal {
     display: none; 
     position: fixed;
@@ -50,23 +49,18 @@ h1 {
 }
 
 .modal-content {
-    position: relative;
-    top: 20%;
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3);  
     border-radius: 5px;
-    width: 45%;
-    height: 50%;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3);  
+    width: 50%;
     text-align: center;
+    margin:12% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
     font-weight: 400;
     background-image: url('../img/background.png');
 }
 
-/*
- * Styles for the deck of cards
- */
+/*** Decks ***/
 
 .deck {
     width: 660px;
@@ -117,9 +111,7 @@ h1 {
     pointer-events: none;
 }
 
-/*
- * Styles for the Score Panel
- */
+/*** Score ***/
 
 .score-panel {
     text-align: left;
@@ -150,9 +142,14 @@ h1 {
 
 .close {
     float: right;
-    font-size: 32px;
+    font-size: 36px;
     font-weight: bold;
     cursor: pointer;
+    transform: color .3s;
+}
+
+.close:hover {
+    color:#8f939e;
 }
 
 .again {
@@ -164,4 +161,10 @@ h1 {
     color: #2e3d49;
     font-weight: bold;
     font-size: 20px;
+    transition: color .3s;
+}
+
+.again:hover {
+
+    color: #fefefe;
 }
