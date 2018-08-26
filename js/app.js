@@ -1,3 +1,4 @@
+/* DOM Elements */
 let cards = document.getElementsByClassName('card');
 let card = [...cards];
 let deck = document.querySelector('.deck');
@@ -9,6 +10,8 @@ const close = document.querySelector('.close');
 let moveHTML = document.querySelector('.moves');
 let timer = document.querySelector(".timer");
 let stars = document.querySelector('.stars').children;
+
+/* Variables */
 let openedCards = [];
 let moves = 0;
 let matchCounter = 0;
@@ -38,7 +41,7 @@ function restartRes(){
 	}
 	for(let i = 0; i < card.length; i++) { // Add shuffled card to the page
 		deck.appendChild(card[i]);
-		cards[i].classList.remove('show', 'open', 'match', 'disabled', 'animated');
+		cards[i].classList.remove('show', 'open', 'match', 'disabled', 'animated', 'rubberBand');
 	}
 	if(stars[0].style.visibility === "hidden") { stars[0].style.visibility = "visible" }
 		if(stars[1].style.visibility === "hidden") { stars[1].style.visibility = "visible" }
