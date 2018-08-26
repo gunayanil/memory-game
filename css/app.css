@@ -14,7 +14,7 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
-    overflow-y: hidden;
+/*    overflow: hidden;*/
 }
 
 body {
@@ -61,7 +61,7 @@ h1 {
     height: 50%;
     text-align: center;
     font-weight: 400;
-
+    background-image: url('../img/background.png');
 }
 
 /*
@@ -165,7 +165,3 @@ h1 {
     font-weight: bold;
     font-size: 20px;
 }
-
-/*.disabled {
-   pointer-events: none;
-}*/
