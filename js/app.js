@@ -36,20 +36,24 @@ function shuffle(array) {
 function restartRes(){
 	modal.style.display = "none";
 	shuffle(card);
+	
 	while(deck.firstChild) { // First delete all items.
 		deck.removeChild(deck.firstChild);
 	}
+
 	for(let i = 0; i < card.length; i++) { // Add shuffled card to the page
 		deck.appendChild(card[i]);
 		cards[i].classList.remove('show', 'open', 'match', 'disabled', 'animated', 'rubberBand');
 	}
+
 	if(stars[0].style.visibility === "hidden") { stars[0].style.visibility = "visible" }
-		if(stars[1].style.visibility === "hidden") { stars[1].style.visibility = "visible" }
-			moves = 0; matchCounter = 0; openedCards = []; second = 0; minute= 0;
+	if(stars[1].style.visibility === "hidden") { stars[1].style.visibility = "visible" }
+		
+		moves = 0; matchCounter = 0; openedCards = []; second = 0; minute= 0;
 		timer.innerHTML = "O mins 0 secs";
 		moveHTML.textContent = moves;
 		clearInterval(interval);
-	};
+	}
 
 /** DISPLAY - OPEN - CHECK - MOVE **/
 	for(let i = 0; i < card.length; i++) {
@@ -70,6 +74,7 @@ function restartRes(){
 
 function check() {
 	move();
+
 	if(openedCards[0].innerHTML === openedCards[1].innerHTML) {
 		matched();
 	} else {
@@ -108,12 +113,16 @@ function unmatched() {
 
 function move() {
 	moves++;
+	
 	if (moves == 1) { // When moves = 1 start!
 		startTimer();
 	}
+
 	if(moves > 8 && moves < 12) { 
 		stars[0].style.visibility = "hidden";
-	}if(moves > 12) {
+	}
+
+	if(moves > 12) {
 		stars[1].style.visibility = "hidden";
 	}
 	moveHTML.textContent = moves;
@@ -133,18 +142,20 @@ function startTimer(){
 /** FINAL STATUS WITH MODAL **/
 function final() {
 	clearInterval(interval);
+	
 	modal.style.display = "block";
 	moveFinal.innerHTML = moves;
 	timeFinal.innerHTML = minute + " minutes " + second + " seconds";
 
 	if(moves > 8 && moves < 12) { 
 		starFinal.innerHTML = stars[1].innerHTML + stars[2].innerHTML;
-	}else if(moves >= 12) {
+	} else if(moves >= 12) {
 		starFinal.innerHTML = stars[2].innerHTML;
-	}else {
+	} else {
 		starFinal.innerHTML = stars[0].innerHTML + stars[1].innerHTML + stars[2].innerHTML;
 	}
+	
 	close.onclick = function() {
 		modal.style.display = "none";
-	}
+	};
 }
